@@ -294,6 +294,9 @@ finish_image() {
   sudo cp "${root_fs_dir}/usr/boot/vmlinuz" \
        "${root_fs_dir}/boot/coreos/vmlinuz-a"
 
+  sudo cp "${root_fs_dir}/usr/boot/ikgt_pkg.bin" \
+	   "${root_fs_dir}/boot/coreos/ikgt_pkg.bin"
+
   # Record directories installed to the state partition.
   # Explicitly ignore entries covered by existing configs.
   local tmp_ignore=$(awk '/^[dDfFL]/ {print "--ignore=" $2}' \
